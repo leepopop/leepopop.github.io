@@ -100,5 +100,6 @@ function isSolve (maze, start) {
     startPoint[1]]])
   const result = tree.dfs(tree.root, [])
   const index = result.findIndex(arr => arr[0] === 2);
+  alert(index);
   return (index !== -1) ? true : false
 }
