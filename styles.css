@@ -3,6 +3,8 @@ body {
   padding: 0;
   font-family: Arial, sans-serif;
   overflow-x: hidden;
+  background-color: #f0f2f5; /* Light background */
+  color: #333; /* Dark text */
 }
 
 .avatar {
@@ -45,6 +47,7 @@ body {
 .itinerary {
   padding: 20px;
   background-color: #E0FFFF; /* Light Cyan */
+  list-style-type: none; /* Remove list numbers */
 }
 
 .tabs {
@@ -70,4 +73,298 @@ button:hover {
 h2 {
   font-size: 24px;
   margin-bottom: 10px;
+}
+
+.section1 {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: transform 1s ease-in-out;
+  background-color: #f0f2f5; /* Light background */
+}
+
+.section1.hide {
+  transform: translateY(-100%);
+}
+
+.main-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0; /* Ensure the main image is visible */
+}
+
+.logo {
+  width: 80%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1; /* Ensure the logo is above the main image */
+}
+
+.logo img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.go-button {
+  background-color: #28a745; /* Green */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.5s, opacity 0.5s;
+  position: absolute;
+  bottom: 20%; /* Position 20% from the bottom */
+  z-index: 1; /* Ensure the button is above the main image */
+}
+
+.go-button.active {
+  animation: expandAndFade 1s forwards, fadeOut 1s forwards;
+}
+
+@keyframes expandAndFade {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(5);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.section2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  background-color: #f0f2f5; /* Light background */
+}
+
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 2px solid #ccc;
+  height: 50px; /* Fixed height for navigation buttons */
+}
+
+.nav-buttons button {
+  flex: 1;
+  padding: 10px 0;
+  background-color: transparent;
+  color: #007BFF;
+  border: none;
+  border-right: 1px solid #ccc;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.nav-buttons button:last-child {
+  border-right: none;
+}
+
+.nav-buttons button:hover {
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+.nav-buttons button.active {
+  background-color: #0056b3;
+  color: white;
+}
+
+.content-area {
+  flex: 1;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  position: relative;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover; /* Ensure the background image fills the content area */
+  width: 100%; /* Ensure the content area is full width */
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.day-content {
+  flex: 1;
+  display: none;
+  color: #333; /* Dark text */
+  overflow-y: auto; /* Allow scrolling if content overflows */
+  position: relative; /* Ensure content is above the background image */
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover; /* Ensure the background image fills the content area */
+}
+
+.day-content.active {
+  display: block;
+}
+
+.day-content[data-day="day1"] {
+  background-image: url('images/1/bg.jpg');
+}
+
+.day-content[data-day="day2"] {
+  background-image: url('images/2/bg.jpg');
+}
+
+.day-content[data-day="day3"] {
+  background-image: url('images/3/bg.jpg');
+}
+
+.day-content[data-day="day4"] {
+  background-image: url('images/4/bg.jpg');
+}
+
+.day-content[data-day="day5"] {
+  background-image: url('images/5/bg.jpg');
+}
+
+.day {
+  position: absolute;
+  width: 20%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid white;
+  border-radius: 50%;
+  transform-origin: center;
+}
+
+.day:nth-child(1) {
+  transform: rotate(0deg) translate(50vh) rotate(0deg);
+}
+
+.day:nth-child(2) {
+  transform: rotate(72deg) translate(50vh) rotate(-72deg);
+}
+
+.day:nth-child(3) {
+  transform: rotate(144deg) translate(50vh) rotate(-144deg);
+}
+
+.day:nth-child(4) {
+  transform: rotate(216deg) translate(50vh) rotate(-216deg);
+}
+
+.day:nth-child(5) {
+  transform: rotate(288deg) translate(50vh) rotate(-288deg);
+}
+
+.page {
+  height: 100vh;
+  scroll-snap-align: start;
+  padding: 20px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.6);
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
+.page-title {
+  font-size: 48px; /* Increase font size */
+  margin: 10% 0 20px 10%; /* Position title 10% from top and left, add space below */
+  text-align: left; /* Left align title */
+  font-family: 'Noto Sans TC', sans-serif; /* Use Noto Sans TC for Traditional Chinese */
+}
+
+.page-description {
+  font-size: 20px; /* Increase font size */
+  margin: 0 0 40px 10%; /* Position description 10% from the left, add space below */
+  text-align: left; /* Align description to the left */
+}
+
+.page-description a {
+  color: #333; /* Dark text color */
+  text-decoration: none; /* Remove underline */
+  display: block; /* Display links as block elements */
+  margin-bottom: 10px; /* Add space between links */
+}
+
+.page-description a:hover {
+  color: #007BFF; /* Change color on hover */
+}
+
+.page-image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.page-image.onerror {
+  content: url('images/tobeupdate.jpg');
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.gallery img {
+  width: calc(50% - 10px);
+  height: auto;
+  border-radius: 10px;
+}
+
+.gallery img.onerror {
+  content: url('images/tobeupdate.jpg');
+}
+
+/* Import Noto Sans TC font */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap');
+
+.top-link {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 16px;
+  color: #007BFF;
+  text-decoration: none;
+}
+
+.top-link:hover {
+  color: #0056b3;
 }

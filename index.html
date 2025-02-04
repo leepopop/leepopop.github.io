@@ -1,45 +1,351 @@
 <!DOCTYPE html>
-
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="styles.css">
-  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.2.2/dist/cdn.min.js" defer></script>
   <script src="scripts.js" defer></script>
+  <!-- Import Noto Sans TC font -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body x-data="{ activeDay: 'day1' }">
-  <div class="parallax"></div>
-  <div class="avatars">
-    <img src="https://via.placeholder.com/80/000000/FFFFFF?text=A" class="avatar" alt="Family Member A">
-    <img src="https://via.placeholder.com/80/000000/FFFFFF?text=B" class="avatar" alt="Family Member B">
-    <img src="https://via.placeholder.com/80/000000/FFFFFF?text=C" class="avatar" alt="Family Member C">
-    <img src="https://via.placeholder.com/80/000000/FFFFFF?text=D" class="avatar" alt="Family Member D">
-    <img src="https://via.placeholder.com/80/000000/FFFFFF?text=E" class="avatar" alt="Family Member E">
-    <img src="https://via.placeholder.com/80/000000/FFFFFF?text=F" class="avatar" alt="Family Member F">
-    <img src="https://via.placeholder.com/80/000000/FFFFFF?text=G" class="avatar" alt="Family Member G">
-    <img src="https://via.placeholder.com/80/000000/FFFFFF?text=H" class="avatar" alt="Family Member H">
-    <img src="https://via.placeholder.com/80/000000/FFFFFF?text=I" class="avatar" alt="Family Member I">
-    <img src="https://via.placeholder.com/80/000000/FFFFFF?text=J" class="avatar" alt="Family Member J">
-    <img src="https://via.placeholder.com/80/000000/FFFFFF?text=K" class="avatar" alt="Family Member K">
-    <img src="https://via.placeholder.com/80/000000/FFFFFF?text=L" class="avatar" alt="Family Member L">
+<body>
+  <div class="section1">
+    <img src="images/main.jpg" class="main-image" alt="Main Image">
+    <div class="logo">
+      <img src="images/logo.png" alt="Logo">
+    </div>
+    <button class="go-button">GO</button>
   </div>
-  <div class="itinerary">
-    <div class="tabs">
-      <button @click="activeDay = 'day1'">Day 1</button>
-      <button @click="activeDay = 'day2'">Day 2</button>
-      <!-- Add more day buttons as needed -->
+  <div class="section2">
+    <div class="nav-buttons">
+      <button data-day="day1" class="selected">Day 1</button>
+      <button data-day="day2">Day 2</button>
+      <button data-day="day3">Day 3</button>
+      <button data-day="day4">Day 4</button>
+      <button data-day="day5">Day 5</button>
     </div>
-    <div x-show="activeDay === 'day1'">
-      <h2>Day 1 Itinerary</h2>
-      <p>行程內容示例</p>
-      <!-- Add day 1 itinerary details here -->
+    <div class="content-area" style="background-image: url('images/1/bg.jpg'); background-attachment: fixed; background-size: cover;">
+      <div class="day-content" data-day="day1">
+        <div class="page">
+          <div class="page-title">銀座周邊</div>
+          <div class="page-description">
+            <a href="#day1-flight">飛機</a><br>
+            <a href="#day1-train">電車</a><br>
+            <a href="#day1-hotel">飯店</a><br>
+            <a href="#day1-shopping">銀座逛街</a><br>
+            <a href="#day1-dinner">晚餐</a><br>
+            <a href="#day1-snack">消夜</a><br>
+            <a href="#day1-gallery">gallery</a>
+          </div>
+        </div>
+        <div class="page" id="day1-flight">
+          <div class="page-title">TSA->HND flight</div>
+          <div class="page-description">時間: 0900-1250<br>從台北飛往東京，開始我們的旅程。</div>
+          <img src="images/1/flight.jpg" alt="Flight" class="page-image" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+        </div>
+        <div class="page" id="day1-train">
+          <div class="page-title">access to hotel</div>
+          <div class="page-description">時間: 1300-1500<br>抵達酒店，準備開始探索銀座。</div>
+          <img src="images/1/hotel.jpg" alt="Hotel" class="page-image" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+        </div>
+        <div class="page" id="day1-hotel">
+          <div class="page-title">lunch</div>
+          <div class="page-description">時間: 1500-1600<br>在銀座享用午餐，品嚐當地美食。</div>
+          <img src="images/1/lunch.jpg" alt="Lunch" class="page-image" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+        </div>
+        <div class="page" id="day1-shopping">
+          <div class="page-title">shopping</div>
+          <div class="page-description">時間: 1600-1700<br>在銀座購物，探索當地的商店。</div>
+          <img src="images/1/shopping.jpg" alt="Shopping" class="page-image" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+        </div>
+        <div class="page" id="day1-dinner">
+          <div class="page-title">pokemon cafe</div>
+          <div class="page-description">時間: 1700-1800<br>在銀座的寶可夢咖啡廳享受下午茶。</div>
+          <img src="images/1/pokemon.jpg" alt="Pokemon Cafe" class="page-image" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+        </div>
+        <div class="page" id="day1-snack">
+          <div class="page-title">hotel rest</div>
+          <div class="page-description">時間: 1800-2000<br>回到酒店休息，為晚餐做準備。</div>
+          <img src="images/1/rest.jpg" alt="Hotel Rest" class="page-image" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+        </div>
+        <div class="page" id="day1-gallery">
+          <div class="page-title">dinner</div>
+          <div class="page-description">時間: 2000-2200<br>在居酒屋享用晚餐，僅限成人。</div>
+          <img src="images/1/dinner.jpg" alt="Dinner" class="page-image" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+        </div>
+        <div class="page" id="day1-gallery">
+          <div class="page-title">Gallery</div>
+          <div class="gallery">
+            <img src="images/1/gallery1.jpg" alt="Gallery Image 1" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+            <img src="images/1/gallery2.jpg" alt="Gallery Image 2" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+            <img src="images/1/gallery3.jpg" alt="Gallery Image 3" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+            <!-- Add more images as needed -->
+          </div>
+        </div>
+      </div>
+      <div class="day-content" data-day="day2">
+        <div class="page">
+          <div class="page-title">橫濱</div>
+          <div class="page-description">
+            <a href="#day2-breakfast">早餐</a><br>
+            <a href="#day2-train">電車</a><br>
+            <a href="#day2-gondola">纜車</a><br>
+            <a href="#day2-cupnoodle">杯麵博物館</a><br>
+            <a href="#day2-lunch">午餐</a><br>
+            <a href="#day2-shopping">購物</a><br>
+            <a href="#day2-ship">船</a><br>
+            <a href="#day2-dinner">晚餐</a><br>
+            <a href="#day2-gallery">gallery</a>
+          </div>
+          <a href="#top" class="top-link">TOP</a>
+        </div>
+        <div class="page" id="day2-breakfast">
+          <div class="page-title">breakfast</div>
+          <div class="page-description">時間: 0800-0900<br>在酒店享用早餐，開始新的一天。</div>
+          <img src="images/2/breakfast.jpg" alt="Breakfast" class="page-image" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+        </div>
+        <div class="page" id="day2-train">
+          <div class="page-title">train</div>
+          <div class="page-description">時間: 0900-1000<br>乘坐火車前往橫濱，旅程約28分鐘。</div>
+          <img src="images/2/train.jpg" alt="Train" class="page-image" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+        </div>
+        <div class="page" id="day2-gondola">
+          <div class="page-title">gondola->hammerhead</div>
+          <div class="page-description">時間: 1000-1100<br>乘坐纜車到達Hammerhead，欣賞美景。</div>
+          <img src="images/2/gondola.jpg" alt="Gondola" class="page-image" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+        </div>
+        <div class="page" id="day2-cupnoodle">
+          <div class="page-title">cup noodle museum</div>
+          <div class="page-description">時間: 1100-1200<br>參觀杯麵博物館，了解杯麵的歷史。</div>
+          <img src="images/2/cupnoodle.jpg" alt="Cup Noodle Museum" class="page-image" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+        </div>
+        <div class="page" id="day2-lunch">
+          <div class="page-title">lunch</div>
+          <div class="page-description">時間: 1200-1300<br>在彼得兔花園咖啡廳享用午餐。</div>
+          <img src="images/2/lunch.jpg" alt="Lunch" class="page-image" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+        </div>
+        <div class="page" id="day2-shopping">
+          <div class="page-title">shopping, osanbashi pier</div>
+          <div class="page-description">時間: 1300-1700<br>在紅磚倉庫購物，參觀大棧橋碼頭。</div>
+          <img src="images/2/shopping.jpg" alt="Shopping" class="page-image" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+        </div>
+        <div class="page" id="day2-ship">
+          <div class="page-title">ship access</div>
+          <div class="page-description">時間: 1715-1735<br>乘船從紅磚倉庫到橫濱。</div>
+          <img src="images/2/ship.jpg" alt="Ship" class="page-image" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+        </div>
+        <div class="page" id="day2-train">
+          <div class="page-title">train</div>
+          <div class="page-description">時間: 1740-1810<br>乘坐火車返回酒店。</div>
+          <img src="images/2/train.jpg" alt="Train" class="page-image" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+        </div>
+        <div class="page" id="day2-dinner">
+          <div class="page-title">dinner</div>
+          <div class="page-description">時間: 2000-2200<br>在橫濱享用晚餐，僅限成人。</div>
+          <img src="images/2/dinner.jpg" alt="Dinner" class="page-image" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+        </div>
+        <div class="page" id="day2-gallery">
+          <div class="page-title">Gallery</div>
+          <div class="gallery">
+            <img src="images/2/gallery1.jpg" alt="Gallery Image 1" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+            <img src="images/2/gallery2.jpg" alt="Gallery Image 2" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+            <img src="images/2/gallery3.jpg" alt="Gallery Image 3" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+            <!-- Add more images as needed -->
+          </div>
+        </div>
+      </div>
+      <div class="day-content" data-day="day3">
+        <div class="page">
+          <div class="page-title">東京/淺草</div>
+          <div class="page-description">
+            <a href="#day3-breakfast">早餐</a><br>
+            <a href="#day3-hatobus">Hato巴士</a><br>
+            <a href="#day3-shopping">購物</a><br>
+            <a href="#day3-asakusa">淺草</a><br>
+            <a href="#day3-lunch">午餐</a><br>
+            <a href="#day3-tokyotower">東京塔</a><br>
+            <a href="#day3-station">東京車站</a><br>
+            <a href="#day3-dinner">晚餐</a><br>
+            <a href="#day3-gallery">gallery</a>
+          </div>
+          <a href="#top" class="top-link">TOP</a>
+        </div>
+        <div class="page" id="day3-breakfast">
+          <div class="page-title">breakfast</div>
+          <div class="page-description">時間: 0700-0800<br>在酒店享用早餐，開始新的一天。</div>
+          <img src="images/3/breakfast.jpg" alt="Breakfast" class="page-image" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+        </div>
+        <div class="page" id="day3-hatobus">
+          <div class="page-title">hatobus trip</div>
+          <div class="page-description">時間: 0840-<br>乘坐Hato巴士遊覽東京塔、淺草和晴空塔。</div>
+          <img src="images/3/hatobus.jpg" alt="Hato Bus" class="page-image" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+        </div>
+        <div class="page" id="day3-shopping">
+          <div class="page-title">shopping</div>
+          <div class="page-description">時間: 1000-1100<br>在晴空塔購物，探索當地商店。</div>
+          <img src="images/3/shopping.jpg" alt="Shopping" class="page-image" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+        </div>
+        <div class="page" id="day3-asakusa">
+          <div class="page-title">Asakusa</div>
+          <div class="page-description">時間: 1130-1230<br>參觀淺草寺，感受傳統文化。</div>
+          <img src="images/3/asakusa.jpg" alt="Asakusa" class="page-image" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+        </div>
+        <div class="page" id="day3-lunch">
+          <div class="page-title">lunch</div>
+          <div class="page-description">時間: 1300-1400<br>在Shelton自助餐廳享用午餐。</div>
+          <img src="images/3/lunch.jpg" alt="Lunch" class="page-image" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+        </div>
+        <div class="page" id="day3-tokyotower">
+          <div class="page-title">Tokyo Tower</div>
+          <div class="page-description">時間: 1430-1530<br>參觀東京塔，欣賞城市全景。</div>
+          <img src="images/3/tokyotower.jpg" alt="Tokyo Tower" class="page-image" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+        </div>
+        <div class="page" id="day3-station">
+          <div class="page-title">Tokyo station</div>
+          <div class="page-description">時間: -1640<br>探索東京車站，感受繁忙的交通樞紐。</div>
+          <img src="images/3/tokyostation.jpg" alt="Tokyo Station" class="page-image" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+        </div>
+        <div class="page" id="day3-station">
+          <div class="page-title">Tokyo station</div>
+          <div class="page-description">時間: 1640-1800<br>繼續探索東京車站，享受購物和美食。</div>
+          <img src="images/3/tokyostation.jpg" alt="Tokyo Station" class="page-image" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+        </div>
+        <div class="page" id="day3-dinner">
+          <div class="page-title">dinner</div>
+          <div class="page-description">時間: 2000-2200<br>在燒肉店享用晚餐，僅限成人。</div>
+          <img src="images/3/dinner.jpg" alt="Dinner" class="page-image" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+        </div>
+        <div class="page" id="day3-gallery">
+          <div class="page-title">Gallery</div>
+          <div class="gallery">
+            <img src="images/3/gallery1.jpg" alt="Gallery Image 1" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+            <img src="images/3/gallery2.jpg" alt="Gallery Image 2" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+            <img src="images/3/gallery3.jpg" alt="Gallery Image 3" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+            <!-- Add more images as needed -->
+          </div>
+        </div>
+      </div>
+      <div class="day-content" data-day="day4">
+        <div class="page">
+          <div class="page-title">阿佐谷/明治神宮</div>
+          <div class="page-description">
+            <a href="#day4-breakfast">早餐</a><br>
+            <a href="#day4-train">電車</a><br>
+            <a href="#day4-meijijingu">明治神宮</a><br>
+            <a href="#day4-asagaya">阿佐谷</a><br>
+            <a href="#day4-lunch">午餐</a><br>
+            <a href="#day4-shopping">購物</a><br>
+            <a href="#day4-home">家</a><br>
+            <a href="#day4-park">公園</a><br>
+            <a href="#day4-dinner">晚餐</a><br>
+            <a href="#day4-gallery">gallery</a>
+          </div>
+          <a href="#top" class="top-link">TOP</a>
+        </div>
+        <div class="page" id="day4-breakfast">
+          <div class="page-title">breakfast</div>
+          <div class="page-description">時間: 0800-0900<br>在酒店享用早餐，開始新的一天。</div>
+          <img src="images/4/breakfast.jpg" alt="Breakfast" class="page-image" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+        </div>
+        <div class="page" id="day4-train">
+          <div class="page-title">train</div>
+          <div class="page-description">時間: 0900-1000<br>乘坐火車前往明治神宮，旅程約20分鐘。</div>
+          <img src="images/4/train.jpg" alt="Train" class="page-image" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+        </div>
+        <div class="page" id="day4-meijijingu">
+          <div class="page-title">meijijingu</div>
+          <div class="page-description">時間: 1000-1130<br>參觀明治神宮，感受神聖的氛圍。</div>
+          <img src="images/4/meijijingu.jpg" alt="Meiji Jingu" class="page-image" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+        </div>
+        <div class="page" id="day4-asagaya">
+          <div class="page-title">asagaya</div>
+          <div class="page-description">時間: 1130-1200<br>探索阿佐谷，感受當地生活。</div>
+          <img src="images/4/asagaya.jpg" alt="Asagaya" class="page-image" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+        </div>
+        <div class="page" id="day4-lunch">
+          <div class="page-title">lunch</div>
+          <div class="page-description">時間: 1200-1400<br>在山本漢堡享用午餐。</div>
+          <img src="images/4/lunch.jpg" alt="Lunch" class="page-image" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+        </div>
+        <div class="page" id="day4-shopping">
+          <div class="page-title">asagaya syoutengai</div>
+          <div class="page-description">時間: 1400-1500<br>在阿佐谷商店街購物，探索當地商店。</div>
+          <img src="images/4/shopping.jpg" alt="Shopping" class="page-image" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+        </div>
+        <div class="page" id="day4-home">
+          <div class="page-title">my home</div>
+          <div class="page-description">時間: 1500-1600<br>回到家中，享受家庭時光。</div>
+          <img src="images/4/home.jpg" alt="Home" class="page-image" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+        </div>
+        <div class="page" id="day4-park">
+          <div class="page-title">zennfukuji koutuu kouen</div>
+          <div class="page-description">時間: 1600-1700<br>參觀善福寺交通公園，享受戶外活動。</div>
+          <img src="images/4/park.jpg" alt="Park" class="page-image" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+        </div>
+        <div class="page" id="day4-dinner">
+          <div class="page-title">dinner</div>
+          <div class="page-description">時間: 1900-2100<br>在壽司店享用晚餐，僅限成人。</div>
+          <img src="images/4/dinner.jpg" alt="Dinner" class="page-image" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+        </div>
+        <div class="page" id="day4-gallery">
+          <div class="page-title">Gallery</div>
+          <div class="gallery">
+            <img src="images/4/gallery1.jpg" alt="Gallery Image 1" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+            <img src="images/4/gallery2.jpg" alt="Gallery Image 2" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+            <img src="images/4/gallery3.jpg" alt="Gallery Image 3" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+            <!-- Add more images as needed -->
+          </div>
+        </div>
+      </div>
+      <div class="day-content" data-day="day5">
+        <div class="page">
+          <div class="page-title">築地市場/台北</div>
+          <div class="page-description">
+            <a href="#day5-tsukiji">築地市場</a><br>
+            <a href="#day5-breakfast">早餐</a><br>
+            <a href="#day5-checkout">退房/購物</a><br>
+            <a href="#day5-train">電車</a><br>
+            <a href="#day5-flight">飛機</a><br>
+            <a href="#day5-gallery">gallery</a>
+          </div>
+          <a href="#top" class="top-link">TOP</a>
+        </div>
+        <div class="page" id="day5-tsukiji">
+          <div class="page-title">optional:tsukiji market</div>
+          <div class="page-description">時間: 0700-0800<br>參觀築地市場，感受當地的早晨活力。</div>
+          <img src="images/5/tsukiji.jpg" alt="Tsukiji Market" class="page-image" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+        </div>
+        <div class="page" id="day5-breakfast">
+          <div class="page-title">breakfast</div>
+          <div class="page-description">時間: 0800-0900<br>在酒店享用早餐，開始新的一天。</div>
+          <img src="images/5/breakfast.jpg" alt="Breakfast" class="page-image" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+        </div>
+        <div class="page" id="day5-checkout">
+          <div class="page-title">hotel checkout/shopping</div>
+          <div class="page-description">時間: 0900-1100<br>辦理酒店退房，進行最後的購物。</div>
+          <img src="images/5/checkout.jpg" alt="Checkout" class="page-image" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+        </div>
+        <div class="page" id="day5-train">
+          <div class="page-title">train</div>
+          <div class="page-description">時間: 1100-1200<br>乘坐火車前往羽田機場，旅程約1小時。</div>
+          <img src="images/5/train.jpg" alt="Train" class="page-image" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+        </div>
+        <div class="page" id="day5-flight">
+          <div class="page-title">HND->TSA flight</div>
+          <div class="page-description">時間: 1415-1715<br>從羽田飛往台北，結束愉快的旅程。</div>
+          <img src="images/5/flight.jpg" alt="Flight" class="page-image" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+        </div>
+        <div class="page" id="day5-gallery">
+          <div class="page-title">Gallery</div>
+          <div class="gallery">
+            <img src="images/5/gallery1.jpg" alt="Gallery Image 1" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+            <img src="images/5/gallery2.jpg" alt="Gallery Image 2" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+            <img src="images/5/gallery3.jpg" alt="Gallery Image 3" onerror="this.onerror=null;this.src='images/tobeupdate.jpg';">
+            <!-- Add more images as needed -->
+          </div>
+        </div>
+      </div>
     </div>
-    <div x-show="activeDay === 'day2'">
-      <h2>Day 2 Itinerary</h2>
-      <p>行程內容示例</p>
-      <!-- Add day 2 itinerary details here -->
-    </div>
-    <!-- Add more day details as needed -->
   </div>
+</div>
 </body>
 </html>
