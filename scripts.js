@@ -71,3 +71,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+function navigateTo(targetId) {
+    document.querySelectorAll('.nav-buttons button').forEach(button => {
+        button.classList.remove('selected');
+    });
+    document.querySelector(`button[onclick="navigateTo('${targetId}')"]`).classList.add('selected');
+    document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+}
