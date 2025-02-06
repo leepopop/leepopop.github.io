@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelector(`.nav-buttons button[data-day="${day}"]`).classList.add('active');
             document.querySelector('.content-area').style.backgroundImage = `url('images/${day.slice(-1)}/bg.jpg')`;
             document.querySelector(`.day-content[data-day="${day}"]`).scrollTo(0, 0); // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top of the page
         },
         startItinerary() {
             this.showSection2 = true;
@@ -30,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     document.querySelector('.section1').style.display = 'none';
                     document.querySelector('.section2').style.display = 'flex';
                     this.setActiveDay(this.activeDay);
+                    window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top of the page
                 }, 1000); // 延遲以允許過渡
             }, 500); // 延遲以允許按鈕動畫
         }
@@ -37,7 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelector('.go-button').addEventListener('click', () => itinerary.startItinerary());
     document.querySelectorAll('.nav-buttons button').forEach(button => {
-        button.addEventListener('click', () => itinerary.setActiveDay(button.dataset.day));
+        button.addEventListener('click', () => {
+            itinerary.setActiveDay(button.dataset.day);
+            window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top of the page
+        });
     });
 
     // 初始化
@@ -48,6 +53,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Smooth scrolling for itinerary links
     document.querySelectorAll('.page-description a').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+
+    // Smooth scrolling for TOP links
+    document.querySelectorAll('.top-link').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const targetId = link.getAttribute('href').substring(1);
